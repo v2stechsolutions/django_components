@@ -36,7 +36,6 @@ class CloudBucketFileUpload(APIView):
         file_serializer = FileSerializer(data=request.data)
 
         if file_serializer.is_valid():
-            # file_serializer.save()
 
             uploaded_data = request.data
             latest_file_name = uploaded_data['file']
@@ -51,12 +50,10 @@ class CloudBucketFileUpload(APIView):
                 blob = bucket.blob(str(latest_file_name))
 
                 #Upload file in bucket
-                # blob.upload_from_filename(path + str(latest_file_name))
+                blob.upload_from_filename(path + str(latest_file_name))
                 os.remove(path + str(latest_file_name))
-
-                signed_url = blob.generate_signed_url(version='v4',expiration=datetime.timedelta(minutes=30),method='POST', )
-
-                return Response({'signed_url' : signed_url})
+                
+                return Response({'message' : 'File uploaded successfully'})
             except:
                 uploaded_files = glob.glob(path + '*')
                 for f in uploaded_files:
