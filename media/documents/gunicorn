@@ -1,0 +1,1 @@
+gunicorn --certfile=/home/admin1/Documents/Robert_branch/venv/lib/python3.6/site-packages/sslserver/certs/development.crt --keyfile=/home/admin1/Documents/Robert_branch/venv/lib/python3.6/site-packages/sslserver/certs/development.key --bind 0.0.0.0:8888 interviewbot.wsgi

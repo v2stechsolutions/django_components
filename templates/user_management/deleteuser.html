@@ -1,0 +1,37 @@
+<html>
+   <head>
+      <title>Delete User</title>
+      <meta name = "viewport" content = "width = device-width, initial-scale = 1">      
+      <link rel = "stylesheet"
+         href = "https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel = "stylesheet"
+         href = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css">
+      <script type = "text/javascript"
+         src = "https://code.jquery.com/jquery-2.1.1.min.js"></script>           
+      <script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js">
+      </script> 
+      
+      <script>
+         $(document).ready(function() {
+            $('select').material_select();
+         });
+      </script>
+   </head>
+   
+   <body class = "container" style="padding-top: 50px">   
+        <div id="EditUserDiv">
+            <div class="col s6">
+                <label>Select User</label>
+                    <select id="EditUserDropdown">
+                        <option value = "" disabled selected>Select User</option>
+                    </select>               
+            </div>
+            <div class="row">
+                <a class="waves-effect waves-light btn" onclick="DeleteUserValidation()">Delete User</a>
+            </div>
+        </div>
+
+      <script src="/static/user_management/edituser.js"></script>
+      <script src="/static/user_management/deleteuser.js"></script>
+   </body>   
+</html>

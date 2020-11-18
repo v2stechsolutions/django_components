@@ -1,0 +1,31 @@
+	.body {
+  			background-image: url('/media/download.jpeg');
+  			background-size: cover;
+  			color: #fff;
+  		}
+  		.login {
+  			margin-top: 100px;
+        margin-left: 550px;
+        margin-right: 550px;
+  		}
+  		.login .card {
+  			background: rgba(0,0,0, .6);
+  		}
+      .login .card-action {
+        padding-top: 5px;
+        padding-bottom: 5px;
+      }
+  		.login label {
+  			font-size: 16px;
+  			color: #ccc;
+  		}
+  		.login input {
+  			font-size: 22px;
+  			color: #fff;
+  		}
+  		.login button:hover {
+  			padding: 0px 40px;
+  		}
+      .login a {
+        color: white;
+      }
