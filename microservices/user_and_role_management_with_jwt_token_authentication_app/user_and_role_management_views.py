@@ -11,7 +11,6 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.models import User as DefaultUser, Group, Permission as DefaultPermission
-# from django.contrib.auth import authenticate, login
 from django.core import serializers
 from django.forms.models import model_to_dict
 from django.contrib.contenttypes.models import ContentType
@@ -217,12 +216,6 @@ class RoleView(APIView):
         return JsonResponse(roles_serializer.errors, 
                             status=status.HTTP_400_BAD_REQUEST)
 
-    #delete all roles in database
-    # def delete(self, request):
-        
-    #     count = Role.objects.all().delete()
-    #     return JsonResponse({'message' : '{} roles were deleted successfully!'.format(count[0])}, 
-    #                         status=status.HTTP_204_NO_CONTENT)
 
 class RoleIdBasedView(APIView):
     permission_classes = (IsAuthenticated,)
@@ -314,11 +307,6 @@ class UserView(APIView):
         return JsonResponse(users_serializer.errors, 
                             status=status.HTTP_400_BAD_REQUEST)
 
-    #delete all users from database
-    # def delete(self, request):
-    #     count = User.objects.all().delete()
-    #     return JsonResponse({'message': '{} Users were deleted successfully!'.format(count[0])}, 
-    #                         status=status.HTTP_204_NO_CONTENT)
 
 class UserIdBasedView(APIView):
     permission_classes = (IsAuthenticated,)

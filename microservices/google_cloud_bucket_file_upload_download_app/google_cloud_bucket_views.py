@@ -22,7 +22,6 @@ class GoogleCloudHomeView(APIView):
         return render(request, 'google_cloud/home.html')
 
     def post(self, request):
-        print('hey'*20)
         file_serializer = FileSerializer(data=request.data)
 
         if file_serializer.is_valid():
@@ -42,29 +41,10 @@ class GoogleCloudHomeView(APIView):
 
                 #Upload file in bucket
                 blob.upload_from_filename(path + str(latest_file_name))
-                # os.remove(path + str(latest_file_name))
-
-                # signed_url = blob.generate_signed_url(version='v4',expiration=datetime.timedelta(minutes=30),method='POST', )
-
-
-                # url = blob.generate_signed_url(
-                #     version="v4",
-                #     # This URL is valid for 15 minutes
-                #     expiration=datetime.timedelta(minutes=15),
-                #     # Allow PUT requests using this URL.
-                #     method="PUT",
-                #     content_type="image/jpeg",
-                # )
-
-                # print('-'*80)
-                # print(signed_url)
-                # print('-'*80)
-                # print(url)
-                # print('-'*80)
 
                 return Response({'message' : 'Successfully uploaded'})
             except Exception as e:
-                print(e)
+                
                 uploaded_files = glob.glob(path + '*')
                 for f in uploaded_files:
                     os.remove(f)
@@ -109,30 +89,12 @@ class CloudBucketFileUpload(APIView):
                 blob = bucket.blob(str(latest_file_name))
 
                 #Upload file in bucket
-                # blob.upload_from_filename(path + str(latest_file_name))
+                blob.upload_from_filename(path + str(latest_file_name))
                 os.remove(path + str(latest_file_name))
 
-                # signed_url = blob.generate_signed_url(version='v4',expiration=datetime.timedelta(minutes=30),method='POST', )
-
-
-                url = blob.generate_signed_url(
-                    version="v4",
-                    # This URL is valid for 15 minutes
-                    expiration=datetime.timedelta(minutes=15),
-                    # Allow PUT requests using this URL.
-                    method="PUT",
-                    content_type="image/jpeg",
-                )
-
-                # print('-'*80)
-                # print(signed_url)
-                print('-'*80)
-                print(url)
-                print('-'*80)
-
-                return Response({'signed_url' : url})
+                return Response({'message' : 'Success'})
             except Exception as e:
-                print(e)
+                
                 uploaded_files = glob.glob(path + '*')
                 for f in uploaded_files:
                     os.remove(f)

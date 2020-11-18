@@ -18,14 +18,8 @@ class GoogleDriveHomeView(APIView):
 
     def post(self, request):
         file_serializer = FileSerializer(data=request.data)
-        print('G'*80)
-        print(file_serializer)
-        print('F'*80)
         if file_serializer.is_valid():
-            print('R'*80)
             file_serializer.save()
-            print('Q'*80)
-
             uploaded_data = request.data
             latest_file_name = uploaded_data['file']
 
@@ -54,7 +48,7 @@ class GoogleDriveHomeView(APIView):
                 return Response({'message' : 'File uploaded successsfully.'})
             
             except Exception as e:
-                print(e)
+                
                 uploaded_files = glob.glob(path + '*')
 
                 for f in uploaded_files:
