@@ -1,0 +1,18 @@
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">User Management</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><button style="margin: 7px;" class="btn btn-info" onclick="dashboardHome()">Home</button></li>
+        <li><button style="margin: 7px;" class="btn btn-info" onclick="dashboardUser()">Users</button></li>
+        <li><button style="margin: 7px;" class="btn btn-info" onclick="dashboardRoles()">Roles</button></li>
+      </ul>
+      <ul class="nav navbar-nav" style='float:right'>
+          <!-- <li><a onclick="DjangoLogoutUser()">Logout</a></li> -->
+          <li><button style="margin-top: 5px;" class="btn btn-danger" onclick="DjangoLogoutUser()">Logout</button></li>
+      </ul>
+    </div>
+</nav>
+<script src="/static/user_management/js/userwebpage.js"></script>

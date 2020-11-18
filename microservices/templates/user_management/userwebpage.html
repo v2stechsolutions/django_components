@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/user_management/css/bootstrap.min.dashboard.css">
+    <script src="/static/user_management/js/jquery.min.dashboard.js"></script>
+    <script src="/static/user_management/js/bootstrap.min.dashboard.js"></script>
+    <title>User</title>
+</head>
+<body>
+    {% include 'user_management/navigation.html' %}
+    <div class="container">
+        <div class="card">
+            <div class="row">
+                <div class="card col-sm-3" id="GetUserListDiv">
+                    <h3>Get User List</h3>
+                    <div class='userListDiv' style="height: 200px;overflow-y: scroll;">
+
+                    </div>
+                    <button class="btn btn-primary" onclick="GetUserList()">Click Here</button>
+                </div>
+                <div class="card col-sm-3" id="AddUserDiv">
+                    <h3>Add User </h3>
+                    <div>
+                        <h4>Username</h4>
+                        <input type="text" name="" id="userName">
+                        <h4>Role</h4>
+                        <select name="roles" id="roles">
+                            <option value="">Select Role</option>
+                        </select>
+                        <h4>First Name</h4>
+                        <input type="text" name="" id="fullNameFirst">
+                        <h4>Last Name</h4>
+                        <input type="text" name="" id="fullNameLast">
+                        <h4>email</h4>
+                        <input type="email" name="" id="emailAddress">
+                        <h4>Password</h4>
+                        <input type="password" name="" id="PasswordUser">
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" style="margin-top: 10px;" onclick="AddNewUserValidation()">Add User</button>
+                    </div>
+                </div>
+                <div class="card col-sm-3" id="DeleteUserDiv">
+                    <h3>Delete User</h3>
+                    <div>
+                        <select name="deleteUser" id="deleteUser">
+                            <option>select user to delete</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" style="margin-top: 10px;" onclick="DeleteSelectedUserValidation()">Delete User</button>
+                    </div>
+                </div>
+                <div class="card col-sm-3" id="EditUserDiv">
+                    <h3>Edit User </h3>
+                    <div id="selectEditUserDiv">
+                        <select name="editUser" id="editUser" onchange="checkEditUserID()">
+                            <option>select user to edit</option>
+                        </select>
+                    </div>
+                    <div id="editUserDetailsDiv">
+                        <h4>Username</h4>
+                        <input type="text" name="" id="userNameEdit">
+                        <h4>Role</h4>
+                        <select name="rolesedit" id="rolesEdit">
+                            <option value="">Select Role</option>
+                        </select>
+                        <h4>First Name</h4>
+                        <input type="text" name="" id="fullNameFirstEdit">
+                        <h4>Last Name</h4>
+                        <input type="text" name="" id="fullNameLastEdit">
+                        <h4>email</h4>
+                        <input type="email" name="" id="emailAddressEdit">
+                        <h4>Password</h4>
+                        <input type="password" name="" id="PasswordUserEdit">
+                    </div>
+                    <div id="saveUserEditedInfo">
+                        <button class="btn btn-info" style="margin-top: 10px;" onclick="cancelEditDiv()">Cancel</button>
+                        <button class="btn btn-primary" style="margin-top: 10px;" onclick="EditUserValidation()">Edit User</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/user_management/js/userwebpage.js"></script>
+</body>
+</html>
